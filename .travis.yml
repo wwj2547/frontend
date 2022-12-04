@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t wwj2547/frontend -f Dockerfile.dev .
+
+script:
+  - docker run wwj2547/frontend npm run test -- --coverage
